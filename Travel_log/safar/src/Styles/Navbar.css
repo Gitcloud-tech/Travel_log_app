@@ -1,0 +1,17 @@
+.navbar {
+    width:100%;
+    background-color: aqua;
+    padding:10px 20px;
+}
+.navlinks1{
+    position:relative;
+    right:20px;
+}
+.navlinks1 ul{
+    gap:2%;
+}
+
+.navbar .logo{
+    height:50px;
+    width:50px;
+} 
