@@ -1,0 +1,109 @@
+/* --------------------BLOG form style------------ */
+
+/* .main-parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 26px;
+    }
+    
+    .main-box1 { grid-area: 1 / 1 / 2 / 6; }
+    .main-box2 { grid-area: 2 / 1 / 3 / 3; }
+    .main-box3 { grid-area: 2 / 3 / 3 / 5; }
+    .main-box4 { grid-area: 3 / 1 / 4 / 3; }
+    .main-box5 { grid-area: 3 / 3 / 4 / 5; }
+    .main-box6 { grid-area: 4 / 1 / 5 / 5; }
+    .main-box7 { grid-area: 5 / 1 / 6 / 5; } */
+
+
+
+
+    /* --------------------Log 1  form style------------ */
+
+    /* .log1-parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 26px;
+        }
+        
+        .div1 { grid-area: 1 / 1 / 2 / 3; }
+        .div2 { grid-area: 2 / 1 / 3 / 2; }
+        .div3 { grid-area: 2 / 2 / 3 / 3; }
+        .div4 { grid-area: 3 / 1 / 4 / 3; }
+        .div5 { grid-area: 4 / 1 / 5 / 3; }
+        .div6 { grid-area: 5 / 1 / 6 / 2; }
+        .div7 { grid-area: 5 / 2 / 6 / 3; }
+        .div8 { grid-area: 6 / 1 / 7 / 2; }
+        .div9 { grid-area: 6 / 2 / 7 / 3; } */
+
+
+
+
+
+
+.main-form-box{
+    padding:30px;
+}
+        /* ------main form style ----------------- */
+
+
+        .main-parent {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, auto);
+            grid-gap: 26px; 
+        }
+        
+        .main-box1 { grid-area: 1 / 1 / 2 / 5; } /* Adjusted grid area */
+        .main-box2 { grid-area: 2 / 1 / 3 / 3; }
+        .main-box3 { grid-area: 2 / 3 / 3 / 5; }
+        .main-box4 { grid-area: 3 / 1 / 4 / 3; }
+        .main-box5 { grid-area: 3 / 3 / 4 / 5; }
+        .main-box6 { grid-area: 4 / 1 / 5 / 5; } /* Adjusted grid area */
+        .main-box7 { grid-area: 5 / 1 / 6 / 5; }
+        
+/* -------------mini form----------------- */
+
+        .log-parent {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(6, auto);
+            grid-gap: 26px; 
+
+        }
+        
+        .div1 { grid-area: 1 / 1 / 2 / 3; }
+        .div2 { grid-area: 2 / 1 / 3 / 2; }
+        .div3 { grid-area: 2 / 2 / 3 / 3; }
+        .div4 { grid-area: 3 / 1 / 4 / 3; }
+        .div5 { grid-area: 4 / 1 / 5 / 3; }
+        .div6 { grid-area: 5 / 1 / 6 / 2; }
+        .div7 { grid-area: 5 / 2 / 6 / 3; }
+        .div8 { grid-area: 6 / 1 / 7 / 2; gap:30px; }
+        .div9 { grid-area: 6 / 2 / 7 / 3; }
+        
+
+/* -----------inputs styles--------------- */
+
+input{
+    border-radius:5px;
+    outline: none;
+    border:1px solid grey;
+    margin-left: 20px;
+}
+
+
+
+
+#check:checked + .passMoney {
+    display: inline;
+}
+
+#check:not(:checked) + .passMoney {
+    display: none;
+}
+
+
