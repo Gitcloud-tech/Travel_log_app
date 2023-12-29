@@ -101,7 +101,7 @@ const MyBlogs = () => {
 
           </div>
           <br></br>
-          
+          <Link to="/add-blog" className="btn btn-outline-warning"> Add Blog</Link>
         </div>
       </main>
     </>
