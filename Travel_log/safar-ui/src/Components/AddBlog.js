@@ -6,7 +6,7 @@ const AddBlog = () => {
 
 	const editor = useRef(null);
 	const [content, setContent] = useState('');
-
+	
 	return (
 		<>
 			<div className="container border main-form-box">
@@ -94,7 +94,7 @@ const AddBlog = () => {
 
 						</div>  {/* main box 7 ends */}
 					</div>
-
+					<hr></hr>
 					<button className="btn btn-success mt-5" type="submit">SUBMIT</button>
 				</form>
 			</div>

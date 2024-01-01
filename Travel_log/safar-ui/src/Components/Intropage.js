@@ -4,9 +4,8 @@ import '../Styles/Intropage.css'
 const IntroPage = () => {
     return (
         <>
-            <div className='intro-page d-flex bg-danger'>
+            <div className='intro-page d-flex '>
                 <div className='intro-show col-7 d-flex'>
-
                     <div className="head-title">
                         <b>SAFAR</b>
                     </div>
