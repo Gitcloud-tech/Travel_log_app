@@ -1,29 +1,135 @@
-import React from "react";
+import React,{useState} from "react"
+import './Auth.css'
+import axios from 'axios'
 
 const SignUp = () => {
+
+    const [user, setUser] = useState({
+        fullName : '',
+        username : '',
+        email : '',
+        mobile : '',
+        socialInsta : '',
+        socialYoutube : '',
+        pass:'',
+        confirmPass:''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUser((prevUser) => ({ ...prevUser, [name]: value }));
+      };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const result = await axios.post('http://localhost:8080/user', user);
+            
+            console.log('User registered successfully:', result.data);
+        } catch (error) {
+            
+            console.error('Error registering user:', error.message);
+        }
+    };
+
     return (
-            <div className='container'>
-                <form>
+            <div className='container d-flex'>
+                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Name</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <b>Full Name:</b>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="fullName"
+                            placeholder="Enter Full Name"
+                            value={user.fullName}
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <b>Username: </b>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="username"
+                            placeholder="Enter Username"
+                            value={user.username}
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="pass">Password</label>
-                        <input type="password" className="form-control" id="pass" placeholder="Password" />
+                        <b>Email:</b>
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
+                            placeholder="Enter email"
+                            value={user.email}
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="confirmPass">Confirm Password</label>
-                        <input type="password" className="form-control" id="confirmPass" placeholder="Password" />
+                        <b>Mobile:</b>
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="mobile"
+                            placeholder="Enter mobile no."
+                            value={user.mobile}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <br></br>
-                    <button type="submit" className="btn btn-primary">SIGN UP</button>
+                    <div className="form-group">
+                        <b>Instagram:</b>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="socialInsta"
+                            placeholder="Enter Instagram profile link"
+                            value={user.socialInsta}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <b>Youtube:</b>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="socialYoutube"
+                            placeholder="Enter Youtube Channel link"
+                            value={user.socialYoutube}
+                            onChange={handleChange}
+                        />
+                    </div>
 
 
+                    <div className="form-group">
+                        <b>Password:</b>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="pass"
+                            placeholder="Enter Password"
+                            value={user.pass}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <b>Confirm Password:</b>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="confirmPass"
+                            placeholder="Confirm your password"
+                            value={user.confirmPass}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <br />
+                    <button type="submit" className="btn btn-primary">
+                        SIGN UP
+                    </button>
                 </form>
             </div>
     )
