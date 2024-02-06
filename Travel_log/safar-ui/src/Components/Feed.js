@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Feed = () => {
-  const [users, setUsers] = useState([]);
-  const [blogs, setBlogs] = useState([]);
+  const [users, setUsers] = useState([]); // Updated variable name
+  const [blogs, setBlogs] = useState([]); // Updated variable name
 
   useEffect(() => {
     getUsers();
+    
   }, []);
 
   const getUsers = async () => {
@@ -17,7 +18,7 @@ const Feed = () => {
   }
 
   const getUserBlogs = async () => {
-    const result = await axios.get("http://localhost:8080/blogs/getBlogs"); 
+    const result = await axios.get("http://localhost:8080/blogs/getBlogs"); // Updated endpoint
     setBlogs(result.data);
   }
 
@@ -54,6 +55,7 @@ const Feed = () => {
                 <p>Members: {blog.members}</p>
                 <p>Total Cost: {blog.totalCost}</p>
                 <p>Transportation Mode: {blog.transportationMode}</p>
+                {/* Add more fields as needed */}
               </p>
             </div>
           </div>

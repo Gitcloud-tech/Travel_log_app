@@ -22,7 +22,6 @@ import com.safar.LogApp.repository.UserRepo;
 
 	    @PostMapping("/user")
 	    User newUser(@RequestBody User newUser) {
-	        
 	         return userRepo.save(newUser); 
 	    }
 	    

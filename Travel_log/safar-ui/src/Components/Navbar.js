@@ -6,7 +6,7 @@ const Navbar = ()=> {
         <nav className="navbar">
         <div className='col-1'>
 					<Link to="/" >
-						<img src="Images/safar_logo.png" className="logo" alt="SAFAR" />
+						<img src="Images/TheSafarLogo.png" className="logo" alt="SAFAR" />
 					</Link>
 					</div>
 				<div className='navlinks1'>

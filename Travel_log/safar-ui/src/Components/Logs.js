@@ -15,7 +15,7 @@ const Logs = () => {
 		for (let i = 0; i < 10; i++) {
 			const side = i % 2 === 0 ? "left" : "right"; // Set side dynamically
 			timelineItems.push(
-			  <div key={i} className={`container1 ${side}-container`}>
+			  <div key={i} className={`content-container ${side}-container`}>
 				<i className="fa-solid fa-gear"></i>
 				<div className="text-box">
 				  <img className="d-block w-100" src={`Images/${side === 'left' ? 'Antman' : 'Ironman'}.jpg`} alt={side} />
