@@ -14,7 +14,7 @@ public class Log {
 	private String placeName;
     private String startTime;
     private String exitTime;
-//    private String images; // You might want to handle file uploads differently
+    private String images; // You might want to handle file uploads differently
     private String description;
     private boolean passRequired;
     private String passAmount;
@@ -65,6 +65,17 @@ public class Log {
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	
+	
+	
+	
+	public String getImages() {
+		return images;
+	}
+	public void setImages(String images) {
+		this.images = images;
 	}
 
     

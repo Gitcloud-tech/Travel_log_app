@@ -3,7 +3,7 @@ import Login from './Auth/Login';
 import SignUp from './Auth/SignUp';
 import IntroPage from './Components/Intropage';
 import Navbar from './Components/Navbar';
-import Feed from './Components/Feed';
+import AllPosts from './Components/AllPosts';
 import AllUsers from './Components/AllUsers';
 import MyBlogs from './Components/MyBlogs';
 import Logs from './Components/Logs';
@@ -18,9 +18,8 @@ function App() {
       <div  className="section-main">
       <Routes>
         <Route path='/' element={<IntroPage/>} />
-        <Route path='/feed' element={<Feed />} >
-            <Route path='allusers' element={<AllUsers />} />
-          </Route>
+        <Route path='/allPosts' element={<AllPosts />} />
+        <Route path='/allusers' element={<AllUsers />} />
         <Route path='/myblogs' element={<MyBlogs/>} />
         <Route path='/logs' element={<Logs/>} style={{backgroundImage :'url("Imgs/verticalLeaves1.jpg")' }}/>
         <Route path='/addblog' element={<AddBlog/>}/>

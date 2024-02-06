@@ -1,82 +1,49 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 const AllUsers = () => {
+	const [users, setUsers] = useState([]); 
+	
+	useEffect(() => {
+		getUsers();
+
+	}, []);
+
+	const getUsers = async () => {
+		const result = await axios.get("http://localhost:8080/users");
+		setUsers(result.data);
+	}
+
 	return (
 		<>
-			<div className='d-flex'>
-				{/* <aside className='sidebar'>
-                    <Sidebar />
-                </aside> */}
-
-				<main className="container">
-					<div className="container mt-4 d-flex">
-						<div className="card" style={{ width: "18rem" }}>
-							<img className="card-img-top" src="Images/Antman.jpg" alt="Card image cap" />
-							<div className="card-body">
-
-								<h5 className="card-title">Antman</h5>
-								<p className="card-text">
-									<ul>
-										<li>Lonavla</li>
-										<li>Mahabaleshwar</li>
-										<li>Konkan</li>
-									</ul>
-								</p>
-								<Link to="/viewblogs" className="btn btn-primary">View Blogs</Link>
+			<div className="container">
+				{users.map((user, index) => (
+					<div className="card" style={{ width: "18rem" }} key={index}>
+						<img className="card-img-top" src="Images/Antman.jpg" alt="Card image cap" />
+						<div className="card-body">
+							<h5 className="card-title">{user.username}
+								<span>
+									{/* if youtube and instagram field is not null then show social media icons  */}
+									<a href={user.socialYoutube} target='_blank'><i class="fa-brands fa-youtube" style={{ color: "#e30202" }}></i></a>
+									<a href={user.socialInsta} target='_blank'><i class="fa-brands fa-instagram" style={{ color: "#f05cd5" }}></i></a>
+									<a href={user.email} target='_blank'><i class="fa-solid fa-envelope" style={{ color: "#ffadad" }}></i></a>
+								</span>
+							</h5>
+							<p>{user.fullName}</p>
+							<div className="foot">
+								<Link to="/myblogs" className="btn btn-primary">View Blogs</Link>
+								<a href="#"><i class="fa-solid fa-user" style={{ color: "#474F7A" }}></i></a>
 							</div>
-						</div>
-						<div className="card" style={{ width: "18rem" }}>
-							<img className="card-img-top" src="Images/Antman.jpg" alt="Card image cap" />
-							<div className="card-body">
 
-								<h5 className="card-title">Ironman</h5>
-								<p className="card-text">
-									<ul>
-										<li>Tahiti</li>
-										<li>Bali</li>
-										<li>Maldives</li>
-									</ul>
-								</p>
-								<Link to="/viewblogs" className="btn btn-primary">View Blogs</Link>
-							</div>
 						</div>
-						<div className="card" style={{ width: "18rem" }}>
-							<img className="card-img-top" src="Images/Antman.jpg" alt="Card image cap" />
-							<div className="card-body">
-
-								<h5 className="card-title">Superman</h5>
-								<p className="card-text">
-									<ul>
-										<li>Kashmir</li>
-										<li>Gujarat</li>
-										<li>Kannyakumari</li>
-									</ul>
-								</p>
-								<Link to="/viewblogs" className="btn btn-primary">View Blogs</Link>
-							</div>
-						</div>
-						<div className="card" style={{ width: "18rem" }}>
-							<img className="card-img-top" src="Images/Antman.jpg" alt="Card image cap" />
-							<div className="card-body">
-
-								<h5 className="card-title">Spiderman</h5>
-								<p className="card-text">
-									<ul>
-										<li>Leh</li>
-										<li>Ladakh</li>
-										<li>Kashmir</li>
-									</ul>
-								</p>
-								<Link to="/viewblogs" className="btn btn-primary">View Blogs</Link>
-							</div>
-						</div>
-
 					</div>
-					<Link to="/addAtale" className="btn btn-success mt-5">Add A Tale</Link> <br></br>
-					<Link to="/shareJourney" className="btn btn-success mt-5">Share my Journey</Link>
-				</main>
+				))}
 			</div>
+
+
+			
+			
 		</>
 
 	)
