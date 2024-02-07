@@ -9,28 +9,21 @@ const CreateLogs = () => {
     exitTime: '',
     images: '',
     description: '',
-    passRequired: false,
-    passAmount: '',
+    passAmount: 0,
   });
 
   const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
-    setLog((prevLog) => ({
-      ...prevLog,
-      [name]: type === 'checkbox' ? checked : type === 'file' ? files : value,
-    }));
+    const { name, value } = e.target;
+    setLog((prevLog) => ({ ...prevLog, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const formData = new FormData();
-      for (const key in log) {
-        formData.append(key, log[key]);
-      }
+      // Send data to the backend using axios.post
+      const result = await axios.post('http://localhost:8080/blogs/addLog', log);
 
-      const result = await axios.post('http://localhost:8080/blogs/addLog');
       console.log('Log added successfully:', result.data);
 
       // Clear the form after successful submission if needed
@@ -40,8 +33,7 @@ const CreateLogs = () => {
         exitTime: '',
         images: '',
         description: '',
-        passRequired: false,
-        passAmount: '',
+        passAmount: 0
       });
 
       alert('Log added successfully');
@@ -71,11 +63,8 @@ const CreateLogs = () => {
               </label>
             </div>
             <div className="log-child4">
-              {/* <label>
-                Images: <input type="file" name="images" multiple onChange={handleChange} />
-              </label> */}
               <label>
-                <input type="text" placeholder="select any image" value={log.images} onChange={handleChange}/>
+                Images: <input type="text" name="images" onChange={handleChange} />
               </label>
             </div>
             <div className="log-child5">
@@ -122,18 +111,20 @@ const CreateLogs = () => {
             </div>
             <div className="log-child8">
               <label>
-                Pass required:&nbsp;
-                <input type="checkbox" id="checkToggle" checked={log.passRequired} onChange={handleChange} /> &nbsp;
-                <input
-                  type="text"
-                  placeholder="Enter amount of pass"
-                  className="passMoney"
-                  name="passAmount"
-                  value={log.passAmount}
-                  onChange={handleChange}
-                />
+                Pass Amount:&nbsp;
+                
+                  <input
+                    type="number"
+                    placeholder="Enter amount of pass"
+                    className="passMoney"
+                    name="passAmount"
+                    value={log.passAmount}
+                    onChange={handleChange}
+                  />
+                
               </label>
             </div>
+
           </div>
         </form>
       </div>
