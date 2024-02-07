@@ -5,6 +5,13 @@ const Login = () => {
     <div className='container d-flex'>
       <form>
         <div className="form-group">
+          <label>Role</label>
+          <select className="form-control" name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
         </div>
