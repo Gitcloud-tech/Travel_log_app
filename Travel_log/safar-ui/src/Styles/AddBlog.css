@@ -69,13 +69,3 @@ input {
 
 
 
-#checkToggle:checked+.passMoney {
-    display: inline;
-}
-
-#checkToggle:not(:checked)+.passMoney {
-    display: none;
-}
-
-
-

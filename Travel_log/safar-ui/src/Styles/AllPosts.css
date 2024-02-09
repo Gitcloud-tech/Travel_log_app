@@ -10,7 +10,29 @@
     margin-block: 50px;
 }
 
+.card-title span{
+    width:50%;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
 
+.foot{
+    width:100%; 
+    display:flex; 
+    gap:50px; 
+    align-items:center;
+}
+.card-body div::after{
+    margin:0;
+}
+.foot i{
+    background-color: rgb(202, 201, 201);
+    padding:10px;
+    border-radius: 50%;
+}
 
 /* --------------------- all users cards style--------- */
 
@@ -51,3 +73,5 @@
 .div7 {
     grid-area: 4 / 4 / 6 / 5;
 } */
+
+
