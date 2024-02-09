@@ -15,7 +15,7 @@ const Navbar = () => {
 						<Link to="/allPosts" className="btn btn-primary">AllPosts</Link>
 						<Link to='/allusers' className='btn btn-primary'>AllUsers</Link>
 						<Link to="/myblogs" className="btn btn-primary">MyBlogs</Link>
-						<Link to="/login" className="btn btn-outline-success">LOGIN</Link>
+						<Link to="/login" className="btn btn-outline-light">LOGIN</Link>
 						<Link to="/signup" className="btn btn-warning">SIGNUP</Link>
 					</ul>
 				</div>
