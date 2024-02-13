@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.safar.LogApp.model.Log;
-import com.safar.LogApp.model.UserBlog;
+import com.safar.LogApp.model.Blog;
 import com.safar.LogApp.repository.LogsRepo;
 
 
