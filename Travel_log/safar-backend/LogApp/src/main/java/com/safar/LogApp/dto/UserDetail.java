@@ -1,48 +1,22 @@
-package com.safar.LogApp.model;
+package com.safar.LogApp.dto;
 
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "tbl_new_user_user")
-public class User {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "new_user_sequence")
-	@SequenceGenerator(name = "new_user_sequence",sequenceName = "sequence_for_new_user", allocationSize = 1,initialValue = 1)
+public class UserDetail {
 	private int userId;
-	
-	@Column(length = 30)
 	private String userName;
-	
-	@Column(length = 30, unique = true)
 	private String userEmail;
-	
-	@Column(length = 10)
 	private long userPhone;
-	
-	@Column(nullable = false)
 	private String userPassword;
+	private MultipartFile profilePic;
 	
-	private String profilePic;
-	
-	@Enumerated(EnumType.STRING)
 	private UserStatus userStatus;
 	
 	public static enum UserStatus{
 		ACTIVE, INACTIVE, DELETED
 	}
 	
+
 	public int getUserId() {
 		return userId;
 	}
@@ -83,11 +57,11 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	public String getProfilePic() {
+	public MultipartFile getProfilePic() {
 		return profilePic;
 	}
 
-	public void setProfilePic(String profilePic) {
+	public void setProfilePic(MultipartFile profilePic) {
 		this.profilePic = profilePic;
 	}
 
@@ -98,7 +72,7 @@ public class User {
 	public void setUserStatus(UserStatus userStatus) {
 		this.userStatus = userStatus;
 	}
-
 	
 	
 }
+
