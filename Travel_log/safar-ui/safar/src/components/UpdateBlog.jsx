@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './AddBlog.css';
+import '../Styles/Form.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -25,7 +25,7 @@ const UpdateBlog = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const result = axios.get(`http://localhost:8080/blog/get-blog/${blogId}`)
+    const result = axios.get(`${process.env.REACT_APP_BASEPATH}/blog/get-blog/${blogId}`)
     .then(result => {
       const existingBlogData = {
         title: result.data.title,
@@ -65,7 +65,7 @@ const UpdateBlog = () => {
       });
       formData.append('photoUrl', blogData.photoUrl);
       formData.append('bloggerId', getUserId());
-      const response = await axios.put(`http://localhost:8080/update-blog/${blogId}`, formData, {
+      const response = await axios.put(`${process.env.REACT_APP_BASEPATH}/update-blog/${blogId}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

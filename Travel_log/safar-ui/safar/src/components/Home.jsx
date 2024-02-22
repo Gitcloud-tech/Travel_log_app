@@ -1,12 +1,11 @@
 import React from 'react';
-import CustomNavbar from './CustomNavbar';
 import Carousel from 'react-bootstrap/Carousel';
-import img1 from '../img_art/crausal/pexels-asad-photo-maldives-1450340.jpg';
-import img2 from '../img_art/crausal/pexels-jacob-colvin-1761282.jpg';
-import img3 from '../img_art/crausal/pexels-pixabay-99551.jpg';
-import img4 from '../img_art/crausal/pexels-syed-hasan-mehdi-815880.jpg';
+import img1 from '../projectImages/Carousel/pexels-asad-photo-maldives-1450340.jpg';
+import img2 from '../projectImages/Carousel/pexels-jacob-colvin-1761282.jpg';
+import img3 from '../projectImages/Carousel/pexels-pixabay-99551.jpg';
+import img4 from '../projectImages/Carousel/pexels-syed-hasan-mehdi-815880.jpg';
 import Reviews from './Reviews';
-import './Home.css';
+import '../Styles/Home.css';
 import { Button } from 'react-bootstrap';
 import FeaturedPlaces from './FeaturedPlaces';
 import Newsletter from './Newsletter';

@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import './CustomNavbar.css';
+import '../Styles/Navbar.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -9,7 +9,7 @@ import { NavDropdown, Navbar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-const CustomNavbar = ({title}) => {
+const CustomNavbar = ({ title }) => {
   const navigate = useNavigate();
 
   const handleLogOutClick = () => {
@@ -17,23 +17,23 @@ const CustomNavbar = ({title}) => {
     navigate('/');
   };
 
-  const handleAdminDashBoard=()=>{
+  const handleAdminDashBoard = () => {
     navigate('/admin-dashboard')
   }
 
   const handleProfileClick = () => {
-    if (!isBlogger()) {  
+    if (!isBlogger()) {
       navigate('/user-profile');
     } else {
       navigate('/blogger-profile');
     }
   };
   return (
-    <> 
-      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar w-100"  data-bs-theme="dark">
+    <>
+      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar w-100" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="/">
-						<img src="Images/Logo/TheSafarLogo.png" title={title} className="logo" alt="SAFAR" />
+            <img src="Images/Logo/TheSafarLogo.png" title={title} className="logo" alt="SAFAR" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="me-2">
@@ -64,12 +64,10 @@ const CustomNavbar = ({title}) => {
                   <NavDropdown.Item>Contact Us</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-            </Nav>
 
-            <Nav>
-              {!isAuthenticated() ? (
-                <>
-                  <NavDropdown title={<FontAwesomeIcon icon={faUser} size="lg" color="white" />} id="profile-dropdown">
+              <NavDropdown title={<FontAwesomeIcon icon={faUser} size="lg" color="white" />} id="profile-dropdown">
+                {!isAuthenticated() ? (
+                  <>
                     <LinkContainer to="/log-in">
                       <NavDropdown.Item>Log In</NavDropdown.Item>
                     </LinkContainer>
@@ -82,12 +80,11 @@ const CustomNavbar = ({title}) => {
                     <LinkContainer to="/admin-log-in">
                       <NavDropdown.Item>Admin</NavDropdown.Item>
                     </LinkContainer>
-                  </NavDropdown>
-                </>
-              ) : (
-                <>
-                  <NavDropdown title={<FontAwesomeIcon icon={faUser} size="lg" color="white" />} id="profile-dropdown">
-                    {sessionStorage.getItem("adminMessage") !== "secret" ?(
+
+                  </>
+                ) : (
+                  <>
+                    {sessionStorage.getItem("adminMessage") !== "secret" ? (
                       <NavDropdown.Item onClick={handleProfileClick}>
                         Profile
                       </NavDropdown.Item>
@@ -101,14 +98,14 @@ const CustomNavbar = ({title}) => {
                     <NavDropdown.Item onClick={handleLogOutClick}>
                       Log Out
                     </NavDropdown.Item>
-                  </NavDropdown>
-                </>
-              )}
+                  </>
+                )}
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-                  
+
 
     </>
   );

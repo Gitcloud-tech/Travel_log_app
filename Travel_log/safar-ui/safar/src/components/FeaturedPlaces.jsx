@@ -1,13 +1,13 @@
 import React from 'react';
-import img1 from '../img_art/PopularArts/pexels-ricky-esquivel-1701893.jpg';
-import img2 from '../img_art/PopularArts/pexels-oleksandr-p-1004584.jpg';
-import img3 from '../img_art/PopularArts/pexels-mayur-sable-12931217.jpg';
-import img4 from '../img_art/PopularArts/pexels-jen-healy-2542339.jpg';
-import img5 from '../img_art/PopularArts/pexels-jagadeeshbabu-gnanasekaran-14352575.jpg';
-import img6 from '../img_art/PopularArts/pexels-frozenmomentii-13943611.jpg';
-import img7 from '../img_art/PopularArts/pexels-david-geib-3220760.jpg';
-import img8 from '../img_art/PopularArts/pexels-darshak-pandya-574313.jpg';
-import './FeaturedPlaces.css';
+import img1 from '../projectImages/PopularPlaces/pexels-ricky-esquivel-1701893.jpg';
+import img2 from '../projectImages/PopularPlaces/pexels-oleksandr-p-1004584.jpg';
+import img3 from '../projectImages/PopularPlaces/pexels-mayur-sable-12931217.jpg';
+import img4 from '../projectImages/PopularPlaces/pexels-jen-healy-2542339.jpg';
+import img5 from '../projectImages/PopularPlaces/pexels-jagadeeshbabu-gnanasekaran-14352575.jpg';
+import img6 from '../projectImages/PopularPlaces/pexels-frozenmomentii-13943611.jpg';
+import img7 from '../projectImages/PopularPlaces/pexels-david-geib-3220760.jpg';
+import img8 from '../projectImages/PopularPlaces/pexels-darshak-pandya-574313.jpg';
+import '../Styles/FeaturedPlaces.css';
 import { Button } from 'react-bootstrap';
 
 const FeaturedPlaces = () => {

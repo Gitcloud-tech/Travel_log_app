@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-import './Reviews.css';
+import '../Styles/Reviews.css';
 import Carousel from 'react-bootstrap/Carousel';
 
 function Reviews() {

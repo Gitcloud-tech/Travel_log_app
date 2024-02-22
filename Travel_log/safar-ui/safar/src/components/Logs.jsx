@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import './Logs.css'
+import '../Styles/Logs.css'
 import axios from 'axios'
 import { Button } from 'react-bootstrap'
 import { isBlogger, getUserId } from '../utils/TokenUtil'
@@ -18,7 +18,7 @@ const Logs = () => {
     useEffect(() => {
         const fetchLogs = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/log/get-logs/${blogId}`);
+                const response = await axios.get(`${process.env.REACT_APP_BASEPATH}/log/get-logs/${blogId}`);
                 if (response.status === 200) {
                     setLogs(response.data);
                     console.log("isBlogger ----->  ", isBlogger());
@@ -44,7 +44,7 @@ const Logs = () => {
             console.log(logId);
             try {
 
-                axios.delete(`http://localhost:8080/log/delete/${logId}`)
+                axios.delete(`${process.env.REACT_APP_BASEPATH}/log/delete/${logId}`)
                 alert("log deleted successfully");
                 window.location.reload();
             } catch (error) {

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Button, Modal } from 'react-bootstrap';
-import CustomNavbar from './CustomNavbar';
-import { AiOutlineDownload } from 'react-icons/ai';
-import { saveAs } from 'file-saver';
 import { useNavigate } from 'react-router-dom';
-import './MyBlogs.css';
+import '../Styles/MyBlogs.css';
 import axios from 'axios';
 // import { getUserId } from '../utils/TokenUtil';
 import { getBlogImage} from '../Services/BlogService';
@@ -24,7 +21,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/blog/fetchAllBlogs`);
+        const response = await axios.get(`${process.env.REACT_APP_BASEPATH}/blog/fetchAllBlogs`);
         if (response.status === 200) {
           setBlogs(response.data);
         } else {
@@ -52,26 +49,23 @@ const AllBlogs = () => {
     event.preventDefault();
   };
 
-  // const handleDelete = (blogId) => {
-  //   axios.delete(`http://localhost:8080/blog/delete/${blogId}`)
-  //   .then()
-  // }
+ 
   
-  const handleDelete = async (blogId) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
+//   const handleDelete = async (blogId) => {
+//     const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
 
-    if (confirmDelete) {
-        console.log(blogId);
-        try {
-            await axios.delete(`http://localhost:8080/blog/delete/${blogId}`);
-            console.log("Blog deleted successfully");
-            window.location.reload();
-        } catch (error) {
-            console.error('Failed to delete blog:', error);
-            alert("Unable to delete the blog, try reloading !!!")
-        }
-    }
-};
+//     if (confirmDelete) {
+//         console.log(blogId);
+//         try {
+//             await axios.delete(`${process.env.REACT_APP_BASEPATH}/blog/delete/${blogId}`);
+//             console.log("Blog deleted successfully");
+//             window.location.reload();
+//         } catch (error) {
+//             console.error('Failed to delete blog:', error);
+//             alert("Unable to delete the blog, try reloading !!!")
+//         }
+//     }
+// };
 
 
   return (
@@ -86,9 +80,9 @@ const AllBlogs = () => {
             {blogs.map((blog, index) => (
               <Card key={blog.id} className='mb-2 blog-container'>
                 <Card.Body className="blog-container">
-                  <div className="blog-image">
+                  <div className="blog-image-container">
                     <img
-                      className="blogs"
+                      className="blog-image"
                       src={`Images/${blog.photoUrl}`}
                       alt={`Blog ${blog.id}`}
                       onClick={() => handleOpenZoom(blog.id)}
@@ -120,7 +114,8 @@ const AllBlogs = () => {
 
                     {/* <Button onClick={() => navigate('/create-logs') } > create Logs</Button> */}
                     
-                    {isAdmin() && <Button onClick={handleDelete(blog.id)}>Delete</Button>} 
+                    {isAdmin() && <Button>Delete</Button>} 
+                    {/* {isAdmin() && <Button onClick={handleDelete(blog.id)}>Delete</Button>}  */}
                   </div>
                 </Card.Body>
               </Card>

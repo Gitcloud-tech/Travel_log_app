@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Card, Button, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';  
-import './Profile.css';
-import CustomNavbar from './CustomNavbar';
+import '../Styles/Profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { deleteUser  } from '../Services/UserService';
@@ -49,7 +48,6 @@ function Profile() {
 
   return (
     <>
-      {/* <CustomNavbar /> */}
       <Container className="mt-5">
         <h2 className="mb-4 head">Welcome {name}...</h2>
         <Card className="card">
@@ -58,7 +56,7 @@ function Profile() {
           </Card.Header>
           <Card.Body className="card-body">
             <div className="text-center mb-4">
-              <img className='newImg' src={`http://localhost:8080/user/fetch/profilePic/${newid}`} alt="Profile Pic" onClick={handleZoomIn}/>
+              <img className='newImg' src={`${process.env.REACT_APP_BASEPATH}/user/fetch/profilePic/${newid}`} alt="Profile Pic" onClick={handleZoomIn}/>
             </div>
             <div style={{ marginTop:'30px', borderTop:'1px solid #ddd', paddingTop:'20px' }}>
               <div style={{ marginTop:'20px' }}>
@@ -101,7 +99,7 @@ function Profile() {
           <Modal.Body>
             <img
               className='zoomed-profile-pic'
-              src={`http://localhost:8080/user/fetch/profilePic/${newid}`}
+              src={`${process.env.REACT_APP_BASEPATH}/user/fetch/profilePic/${newid}`}
               alt="Zoomed Profile Pic"
             />
           </Modal.Body>

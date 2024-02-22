@@ -1,7 +1,6 @@
 import { Modal, Button, Container, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { deleteUser, getUsers } from "../Services/UserService";
-import AdminNavbar from "./AdminNavbar";
 
 export function UsersList() {
 
@@ -43,7 +42,6 @@ export function UsersList() {
 
     return (
         <>
-            {/* <AdminNavbar /> */}
             <h1>User List</h1>
             <Container>
                 {user.length !== 0 ? (

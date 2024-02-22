@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
-import CustomNavbar from './CustomNavbar';
 import { getBloggerDetails, updateBlogger } from '../Services/UserService';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -58,7 +57,7 @@ const EditBloggerDetails = () => {
         errors.bloggerPhone = /^[0-9]{10}$/.test(value) ? '' : 'Phone should contain exactly 10 numbers';
         break;
       case 'bloggerEmail':
-        errors.bloggerEmail = /\S+@\S+\.\S+/.test(value) ? '' : 'Invalid email address';
+        errors.bloggerEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value) ? '' : 'Invalid email address';
         break;
       default:
         break;

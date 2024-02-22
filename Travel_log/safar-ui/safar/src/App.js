@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CookieConsent from "react-cookie-consent";
 import { Home } from './components/Home';
 import Login from './components/Login';
-import { SignUp } from './components/SignUp';
+import UserSignUp from './components/UserSignUp';
 import { AdminPrivateRoute, PrivateRoute } from './components/PrivateRoute';
 import { RedirectIfLoggedIn } from './components/RedirectIfLoggedIn';
-import { AdminLogin } from './components/AdminLogin';
+import { AdminLogin } from './admin/AdminLogin';
 import { AdminRedirectIfLoggedIn } from './components/AdminRedirectIfLoggedIn';
 import { UsersList } from './components/UserDetails';
 import { Footer } from './components/Footer';
@@ -34,9 +34,9 @@ import TripDetails from './components/TripDetails';
 import UpdateBlog from './components/UpdateBlog';
 import AdminNavbar from './components/AdminNavbar';
 import CustomNavbar from './components/CustomNavbar';
+import UpdateLog from './components/UpdateLog';
 
 import { isAdmin , isBlogger} from './utils/TokenUtil';
-import UpdateLog from './components/updateLog';
 
 
 export const App = () => {
@@ -66,7 +66,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/blogger-register" element={<BloggerRegistration />} />
-        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/sign-up' element={<UserSignUp />} />
         
         <Route path='/admin-log-in' element={<AdminRedirectIfLoggedIn><AdminLogin /></AdminRedirectIfLoggedIn>} />
         <Route path='/log-in' element={<RedirectIfLoggedIn><Login /></RedirectIfLoggedIn>} />

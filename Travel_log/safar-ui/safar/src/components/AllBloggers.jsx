@@ -5,7 +5,7 @@ import { getAllBlogger } from '../Services/UserService';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './AllBloggers.css';
+import '../Styles/AllBloggers.css';
 
 const AllBloggers = () => {
     const [bloggers, setBloggers] = useState([])
@@ -35,7 +35,6 @@ const AllBloggers = () => {
                                 <Col key={index}>
                                     <Card key={blogger.bloggerId} className="blogger-card">
                                         <Card.Img variant="top" src="Images/dummyUser.png"  className="blogger-img "/>
-                                        {/* <Card.Img variant="top" src={`http://localhost:8080/blogger/fetch/profilePic/${blogger.bloggerId}`} /> */}
                                         <Card.Body>
                                             <Card.Title>{blogger.bloggerName}</Card.Title>
                                             <Card.Text>

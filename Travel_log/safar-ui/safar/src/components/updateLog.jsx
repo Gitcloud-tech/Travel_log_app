@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './AddBlog.css';
+import '../Styles/Form.css';
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -24,7 +24,7 @@ const UpdateLog = () => {
     const [logData, setLogData] = useState(initialBlogData);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/blog/log/${logId}`)
+        axios.get(`${process.env.REACT_APP_BASEPATH}/blog/log/${logId}`)
         .then(result => {
             console.log(result);
                 const existingLogData = {
@@ -80,7 +80,7 @@ const UpdateLog = () => {
             formDataForUpload.append('imageUrl', logData.imageUrl);
             formDataForUpload.append('blogId', blogId);
 
-            const response = await axios.put(`http://localhost:8080/update-log/${logId}`, formDataForUpload, {
+            const response = await axios.put(`${process.env.REACT_APP_BASEPATH}/update-log/${logId}`, formDataForUpload, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

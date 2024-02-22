@@ -1,12 +1,13 @@
 import axios from "axios";
-
+// const baseURL = `${process.env.REACT_APP_BASEPATH}`
+const baseURL = process.env.REACT_APP_BASEPATH;
 
 //----------------------------------Blogger Api-------------------------
 
 //================= CREATE  ONE BLOGGER===============================
 export async function register(creditials) {
     try {
-        const response = await axios.post(`http://localhost:8080/register-blogger`, creditials);
+        const response = await axios.post(`${baseURL}/register-blogger`, creditials);
         return response.data;
     } catch (error) {
         console.error('Error during registration:', error);
@@ -20,7 +21,7 @@ export async function register(creditials) {
 export async function bloggerLogin(creditials){
 
     try {
-        const response = await axios.post(`http://localhost:8080/login-blogger`, creditials);
+        const response = await axios.post(`${baseURL}/login-blogger`, creditials);
         console.log("Response Data:", response.data);
         return response.data;
     } catch (error) {
@@ -33,7 +34,7 @@ export async function bloggerLogin(creditials){
 //===================READ ONE BLOGGER==================
 export async function getBloggerDetails(id){
     try {
-       const response = await axios.get(`http://localhost:8080/blogger/fetch/${id}`);
+       const response = await axios.get(`${baseURL}/blogger/fetch/${id}`);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -43,7 +44,7 @@ export async function getBloggerDetails(id){
 //===================READ ALL BLOGGERS ===================== 
 export async function getAllBlogger(){
     try {
-       const response = await axios.get("http://localhost:8080/get-blogger");
+       const response = await axios.get(`${baseURL}/get-blogger`);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -52,14 +53,14 @@ export async function getAllBlogger(){
 
 //====================UPDATE ONE BLOGGER===============
 export async function updateBlogger(creditials){
-    const response = await axios.post(`http://localhost:8080/update-blogger`,creditials);
+    const response = await axios.post(`${baseURL}/update-blogger`,creditials);
     return response.data;
 }
 
-//===================DELETE ONE ==============
+//===================DELETE ONE Blogger ==============
 export async function deleteBlogger(id){
     try {
-        const response = await axios.delete(`http://localhost:8080/delete-blogger/${id}`)
+        const response = await axios.delete(`${baseURL}/delete-blogger/${id}`)
         return response.data;
     } catch (error) {
         console.log(error);
@@ -73,14 +74,14 @@ export async function deleteBlogger(id){
 
 //====================USER LOGIN =========================
 export async function login(creditials){
-    const response =await axios.post(`http://localhost:8080/login-user`,creditials);
+    const response =await axios.post(`${baseURL}/login-user`,creditials);
     return response.data;
 }
 
 //=================READ ONE==========================
 export async function getUserDetails(id){
     try {
-       const response = await axios.get(`http://localhost:8080/user/fetch/${id}`);
+       const response = await axios.get(`${baseURL}/user/fetch/${id}`);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -89,14 +90,14 @@ export async function getUserDetails(id){
 
 
 //===================USER SIGNUP========================
-export async function signup(creditials){
-    const response = await axios.post(`http://localhost:8080/register-user`,creditials);
+export async function userSignUp(creditials){
+    const response = await axios.post(`${baseURL}/register-user`,creditials);
     return response.data;
 }
 
 //====================UPDATE ONE USER===============
 export async function updateUser(creditials){
-    const response = await axios.patch(`http://localhost:8080/user-update`,creditials);
+    const response = await axios.patch(`${baseURL}/user-update`,creditials);
     return response.data;
 }
 
@@ -104,7 +105,7 @@ export async function updateUser(creditials){
 //=================== READ USER======================
 export async function getUsers(){
     try {
-       const response = await axios.get("http://localhost:8080/all-users");
+       const response = await axios.get(`${baseURL}/all-users`);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -115,7 +116,7 @@ export async function getUsers(){
 
 export async function deleteUser(userId) {
     try {
-        const response = await axios.delete(`http://localhost:8080/delete-user/${userId}`);
+        const response = await axios.delete(`${baseURL}/delete-user/${userId}`);
         return response.data;
     } catch (error) {
         console.log(error);

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import './BloggerProfile.css';
-import CustomNavbar from './CustomNavbar';
+import '../Styles/BloggerProfile.css';
 import { deleteBlogger } from '../Services/UserService';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../utils/TokenUtil';
@@ -50,7 +49,7 @@ const BloggerProfile = () => {
 
   const fetchBloggerImages = async (bloggerId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/blog/fetchBlogtPhotosByBlogger/${bloggerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_BASEPATH}/blog/fetchBlogtPhotosByBlogger/${bloggerId}`);
       
 
       if (response.status) {
@@ -74,7 +73,7 @@ const BloggerProfile = () => {
     }
 
     try {
-      const response = await axios.delete(`http://localhost:8080/blog/delete/${imageId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_BASEPATH}/blog/delete/${imageId}`);
 
       if (response.status) {
         alert('Blog image deleted successfully');
@@ -99,7 +98,7 @@ const BloggerProfile = () => {
     }
 
     try {
-      const response = await axios.delete(`http://localhost:8080/delete-blogger/${bloggerId}`);
+      const response = await axios.delete(`${process.env.REACT_APP_BASEPATH}/delete-blogger/${bloggerId}`);
 
       if (response.status) {
         alert('Account deleted successfully');
@@ -123,7 +122,7 @@ const BloggerProfile = () => {
             bloggerImages.map((image, index) => (
               <div key={index} className="user-image-container">
                 <img
-                  src={`http://localhost:8080/blogger/fetch/pic/${image.id}`}
+                  src={`${process.env.REACT_APP_BASEPATH}/blogger/fetch/pic/${image.id}`}
                   alt={`Blogger Image ${index + 1}`}
                   className="user-image"
                   onClick={() => handleZoomIn(image.id)}
@@ -153,7 +152,7 @@ const BloggerProfile = () => {
     formData.append('photoUrl', photoUrl);
 
     try {
-      const response = await axios.post('http://localhost:8080/add-blog', formData);
+      const response = await axios.post(`${process.env.REACT_APP_BASEPATH}/add-blog`, formData);
 
       if (response.status) {
         alert('Image uploaded successfully');
@@ -172,7 +171,6 @@ const BloggerProfile = () => {
 
   return (
     <>
-      {/* <CustomNavbar /> */}
       <Container className="mt-5">
         <h2 className="mb-4 head">Welcome {name}...</h2>
         <Card className="card">
@@ -183,7 +181,7 @@ const BloggerProfile = () => {
             <div className="text-center mb-4">
               <img
                 className="newImage"
-                src={`http://localhost:8080/blogger/fetch/profilePic/${bloggerId}`}
+                src={`${process.env.REACT_APP_BASEPATH}/blogger/fetch/profilePic/${bloggerId}`}
                 alt="Profile Pic"
                 onClick={() => handleProfileZoomIn()} 
               />

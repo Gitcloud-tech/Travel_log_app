@@ -1,6 +1,6 @@
 import React from 'react';
-import aboutImage from '../img_art/FindArt/pexels-nubia-navarro-(nubikini)-386000.jpg';
-import './Newsletter.css';
+import aboutImage from '../projectImages/Homepage/minibus003.jpg';
+import '../Styles/Newsletter.css';
 const Newsletter = () => {
   return (
     <>

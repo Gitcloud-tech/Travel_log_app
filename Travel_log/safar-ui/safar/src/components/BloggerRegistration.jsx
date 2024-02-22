@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
-import CustomNavbar from './CustomNavbar';
 import { register } from '../Services/UserService';
 import { useNavigate } from 'react-router-dom';
-import './AddBlog.css';
-import axios from 'axios';
+import '../Styles/Form.css';
 
 const BloggerRegistration = () => {
   const navigate = useNavigate();
@@ -85,10 +83,7 @@ const BloggerRegistration = () => {
 
       console.log('Form Data for Upload: ', formDataForUpload)
       const response = await register(formDataForUpload);
-
       console.log('Axios Response:', response);
-
-      //  const response = axios.post('http://localhost:8080/register-blogger');
 
       if (response.status === true) {
         alert("Congratulations! You're officially a part of the club.");

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './AddBlog.css';
+import '../Styles/Form.css';
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -57,7 +57,7 @@ const CreateLogs = () => {
       formDataForUpload.append('imageUrl', logData.imageUrl);
       formDataForUpload.append('blogId',blogId);
 
-      const result = await axios.post('http://localhost:8080/add-log', formDataForUpload, {
+      const result = await axios.post(`${process.env.REACT_APP_BASEPATH}/add-log`, formDataForUpload, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

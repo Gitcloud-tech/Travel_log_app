@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './AddBlog.css';
+import '../Styles/Form.css';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import CustomNavbar from './CustomNavbar';
 import axios from 'axios';
 import { getUserId } from '../utils/TokenUtil';
 
@@ -54,7 +53,7 @@ const AddBlog = () => {
       formDataForUpload.append('photoUrl', blogData.photoUrl);
       formDataForUpload.append('bloggerId', getUserId());
   
-      const result = await axios.post('http://localhost:8080/add-blog', formDataForUpload, {
+      const result = await axios.post(`${process.env.REACT_APP_BASEPATH}/add-blog`, formDataForUpload, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

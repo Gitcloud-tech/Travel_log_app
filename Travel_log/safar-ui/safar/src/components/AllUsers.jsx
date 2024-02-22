@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { getUsers } from '../Services/UserService';
-import AdminNavbar from './AdminNavbar';
-
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
@@ -27,7 +25,6 @@ const AllUsers = () => {
 
     return (
         <>
-            {/* <AdminNavbar/> */}
             <div className="container">
                 {users.length === 0 ? (
                     <p>No users registered.</p>

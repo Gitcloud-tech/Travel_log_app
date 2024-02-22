@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import CustomNavbar from './CustomNavbar';
 import { Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -94,7 +93,7 @@ const Blogger = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/get-blogger');
+        const response = await axios.get(`${process.env.REACT_APP_BASEPATH}/get-blogger`);
         console.log(response);
         setBloggers(response.data.list);
       } catch (error) {
@@ -116,7 +115,7 @@ const Blogger = () => {
         <div className="artists-list">
           {bloggers.map(blogger => (
             <BloggerContainer key={blogger.bloggerId}>
-              <BloggerImage src={`http://localhost:8080/blogger/fetch/profilePic/${blogger.bloggerId}`} alt={blogger.bloggerName} />
+              <BloggerImage src={`${process.env.REACT_APP_BASEPATH}/blogger/fetch/profilePic/${blogger.bloggerId}`} alt={blogger.bloggerName} />
               <BloggerInfo>
                 <BloggerName>{blogger.bloggerName}</BloggerName>
                 <BloggerDescription>{blogger.bloggerDescription}</BloggerDescription>

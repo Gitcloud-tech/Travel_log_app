@@ -1,12 +1,8 @@
 import React from 'react';
-import CustomNavbar from './CustomNavbar';
 import Slider from 'react-slick';
-import './ContactUs.css';
+import '../Styles/ContactUs.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import AboutImg from '../img_art/contactUs.jpg';
-import { Hero } from './Hero';
-
 
 const  ContactUs = () => {
     const initialData = {
@@ -105,10 +101,6 @@ const  ContactUs = () => {
 
     return (
         <>
-            {/* <CustomNavbar /> */}
-
-            <Hero className="hero-mid" heroImg={AboutImg} btnClass="hide" />
-
             <div className="row justify-content-center mt-5 mb-5">
                 <div className="col-md-8 contact-form">
                     <div className="text-center mb-4"></div>

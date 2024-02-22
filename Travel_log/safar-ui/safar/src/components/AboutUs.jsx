@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import CustomNavbar from './CustomNavbar';
 import video1 from "../admin/videos/vid1.mp4";
 import { Container } from "react-bootstrap";
-import './AboutUs.css';
+import '../Styles/AboutUs.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 

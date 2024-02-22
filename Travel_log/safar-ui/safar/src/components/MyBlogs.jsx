@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Button, Modal } from 'react-bootstrap';
-import CustomNavbar from './CustomNavbar';
-import { AiOutlineDownload } from 'react-icons/ai';
-import { saveAs } from 'file-saver';
 import { useNavigate } from 'react-router-dom';
-import './MyBlogs.css';
+import '../Styles/MyBlogs.css';
 import axios from 'axios';
 import { getUserId } from '../utils/TokenUtil';
 
@@ -19,7 +16,7 @@ const MyBlogs = () => {
     const bloggerId = getUserId();
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/blog/get-my-blogs/${bloggerId}`);
+        const response = await axios.get(`${process.env.REACT_APP_BASEPATH}/blog/get-my-blogs/${bloggerId}`);
         if (response.status === 200) {
           const blogsWithBloggerId = response.data.map(blog => ({ ...blog, bloggerId }));
           setBlogs(blogsWithBloggerId);
@@ -42,7 +39,7 @@ const MyBlogs = () => {
 
   const handleDelete = async (blogId) => {
     console.log(blogId);   
-    axios.delete(`http://localhost:8080/blog/delete/${blogId}`)
+    axios.delete(`${process.env.REACT_APP_BASEPATH}/blog/delete/${blogId}`)
 
     navigate(`/my-blogs`);
   };
@@ -53,7 +50,7 @@ const MyBlogs = () => {
 //     if (confirmDelete) {
 //         console.log(blogId);
 //         try {
-//             await axios.delete(`http://localhost:8080/blog/delete/${blogId}`);
+//             await axios.delete(`${process.env.REACT_APP_BASEPATH}/blog/delete/${blogId}`);
 //             console.log("Blog deleted successfully");
 //             window.location.reload();
 //         } catch (error) {
@@ -81,9 +78,9 @@ const MyBlogs = () => {
             {blogs.map((blog, index) => (
               <Card key={blog.id} className='mb-2 blog-container'>
                 <Card.Body className="blog-container">
-                  <div className="blog-image">
+                  <div className="blog-image-container">
                     <img
-                      className="blogs"
+                      className="blog-image"
                       src={`Images/${blog.photoUrl}`}
                       alt={`Blog ${blog.id}`}
                       onContextMenu={handleContextMenu}
